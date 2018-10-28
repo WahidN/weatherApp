@@ -1,0 +1,23 @@
+.nav {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    z-index: 1;
+
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        padding: 0 40px;
+        flex-wrap: wrap;
+        list-style: none;
+
+        li {
+            margin-right: 20px;
+        }
+    }
+}
+
+.search__overlay {
+    display: none;
+}

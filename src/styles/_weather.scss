@@ -1,0 +1,27 @@
+.weather {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background-color: bisque;
+    position: relative;
+
+    .place__title {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .country__title {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .weather__info {
+        position: absolute;
+        left: 70px;
+        bottom: 100px;
+
+        .degrees {
+            font-size: 5em;
+        }
+    }
+}
