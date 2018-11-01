@@ -9,7 +9,7 @@ export default class Weather {
     async getWeather() {
         try {
             const res = await Axios(`https://api.openweathermap.org/data/2.5/weather?q=${this.place}&units=metric&APPID=${apiKey}`);
-            console.log(res.data)
+            return res.data;
         } catch(err) {
             console.log(err);
         }

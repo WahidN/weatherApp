@@ -9,8 +9,9 @@
 <body>
     <nav class="nav">
         <ul>
-            <li class="search-icon js--search">
-                    <svg version="1.1" id="Capa_1" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            <li class="search-icon">
+                    <input type="text" id="search" placeholder="search location">
+                    <svg class="icon js--search" title="Search" version="1.1" id="Capa_1" width="15px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve">
                <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
                    s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
@@ -18,7 +19,7 @@
                    s-17-7.626-17-17S14.61,6,23.984,6z"/>
                </svg>
             </li>
-            <li class="geo-icon js--getGeoLocation">
+            <li class="geo-icon js--getGeoLocation" title="Get location weather">
                     <svg version="1.1" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                <g>
@@ -41,9 +42,6 @@
             </li>
         </ul>
     </nav>
-    <div class="search__overlay">
-        <input type="text" placeholder="search location">
-    </div>
     
     <div class="container" id="splash">
         <h1>Weather App</h1>
@@ -54,67 +52,27 @@
             <h4 class="country__title"></h4>
             <div class="weather__info">
                 <div class="degrees">
-                    <span> </span> <small>&#8451;</small>
+                    <span></span>
                 </div>
                 <div class="details">
                     <p>Details</p>
                     <hr>
                     <div class="description">
-                        <span>Chilly</span>
+                        <span></span>
                     </div>
                     <div class="wind">
-                        <span id="windDeg">deg</span>
-                        <span id="windSpeed">speed</span>
+                        <span id="windSpeed"></span>
+                        <span id="windDeg"></span>
                     </div>
                     <div class="min-max">
-                        <span id="tempMax">max</span>
-                        <span id="tempMin" >min</span>
+                        <span id="tempMax"></span>
+                        <span id="tempMin" ></span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="forecast">
             <div class="forecast__list">
-                <div class="list__item">
-                    <div class="time">16:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
-                <div class="list__item">
-                    <div class="time">19:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
-                <div class="list__item">
-                    <div class="time">23:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
-                <div class="list__item">
-                    <div class="time">02:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
-                <div class="list__item">
-                    <div class="time">05:00</div>
-                    <div class="icon"></div>                    
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
-                <div class="list__item">
-                    <div class="time">08:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
-                <div class="list__item">
-                    <div class="time">11:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>                    
-                </div>
-                <div class="list__item">
-                    <div class="time">13:00</div>
-                    <div class="icon"></div>
-                    <div class="degrees">8 <small>&#8451;</small></div>
-                </div>
             </ul>
         </div>
     </div>

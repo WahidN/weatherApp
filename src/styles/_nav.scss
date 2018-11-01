@@ -11,13 +11,32 @@
         padding: 0 40px;
         flex-wrap: wrap;
         list-style: none;
+        align-items: center;
 
         li {
             margin-right: 20px;
+            cursor: pointer;
         }
     }
 }
 
-.search__overlay {
-    display: none;
+.search-icon {
+    position: relative;
+    input {
+        padding: 10px 35px 10px 10px;
+        background-color: transparent;
+        border: 1px solid white;
+
+        &:focus, &:active {
+            outline: none;
+            border-color: lightblue;
+            transition: border-color .3s ease;
+        }
+    }
+
+    .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
 }

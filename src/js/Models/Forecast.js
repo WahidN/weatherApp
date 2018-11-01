@@ -10,7 +10,7 @@ export default class Forecast {
         try {
             const res = await Axios(`https://api.openweathermap.org/data/2.5/forecast?q=${this.place}&units=metric&APPID=${apiKey}`);
             const data = res.data;
-            console.log(data);
+            return data;
         } catch(err) {
             console.log(err);
         }

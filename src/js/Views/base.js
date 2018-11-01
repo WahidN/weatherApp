@@ -7,6 +7,8 @@ export const elements = {
     windDeg: document.getElementById('windDeg'),
     windSpeed: document.getElementById('windSpeed'),
     body: document.querySelector('body'),
+    forecastList: document.querySelector('.forecast__list'),
+    searchInput: document.getElementById('search')
 
 }
 
