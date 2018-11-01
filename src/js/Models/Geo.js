@@ -1,17 +1,17 @@
-import { apiKey } from './base';
+import { apiKey } from '../config';
 import Axios from 'axios';
 
-export default class Forecast {
+export default class GeoWeather {
     constructor(lat, lon) {
         this.lat = lat;
         this.lon = lon;
     }
 
-    async getGeoForeCast() {
+    async getGeoForecast() {
         try {
-            const res = await Axios(`https://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&lon=${this.long}&APPID=${apiKey}`);
+            const res = await Axios(`https://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&lon=${this.lon}&units=metric&APPID=${apiKey}`);
             const data = res.data;
-            console.log(data);
+            return data;
         } catch(err) {
             console.log(err);
         }
@@ -19,9 +19,9 @@ export default class Forecast {
 
     async getGeoWeather() {
         try {
-            const res = await Axios(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&APPID=${apiKey}`);
+            const res = await Axios(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&units=metric&APPID=${apiKey}`);
             const data = res.data;
-            console.log(data);
+            return data;
         } catch(err) {
             console.log(err);
         }

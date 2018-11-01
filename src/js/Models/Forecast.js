@@ -1,4 +1,4 @@
-import { apiKey } from './base';
+import { apiKey } from '../config';
 import Axios from 'axios';
 
 export default class Forecast {
@@ -8,7 +8,7 @@ export default class Forecast {
 
     async getForecast() {
         try {
-            const res = await Axios(`https://api.openweathermap.org/data/2.5/forecast?q=${this.place}&APPID=${apiKey}`);
+            const res = await Axios(`https://api.openweathermap.org/data/2.5/forecast?q=${this.place}&units=metric&APPID=${apiKey}`);
             const data = res.data;
             console.log(data);
         } catch(err) {

@@ -16,6 +16,21 @@
             box-shadow: 1px 0px 2px rgba(0,0,0,.1);
             padding: 20px 30px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+
+            .time {
+                flex: 1 1 auto;
+            }
+
+            .icon {
+                flex: 2 1 auto;
+            }
+
+            .degrees {
+                font-size: 3em;
+                flex: 2 1 auto;
+            }
         }
     }
 }
