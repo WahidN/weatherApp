@@ -70,6 +70,7 @@ const getGeoLocation = () => {
         (err)  => {
             console.log(err)
             geoSet = false;
+            removeLoader();
         }
     )
 }
@@ -111,6 +112,16 @@ const checkGeo = () => {
         }
     } else {
         console.log("geoLocation is not supported");
+        removeLoader();
+    }
+}
+
+const styleNav = () => {
+    const scrollPosY = window.pageYOffset | document.body.scrollTop;
+    if (scrollPosY > 10) {
+        document.querySelector('.nav').classList.add('active');
+    } else {
+        document.querySelector('.nav').classList.remove('active');
     }
 }
 
@@ -122,3 +133,4 @@ const checkGeo = () => {
 window.addEventListener('load', checkGeo);
 document.querySelector('.js--search').addEventListener('click', searchControl)
 document.querySelector('.js--getGeoLocation').addEventListener('click', checkGeo)
+document.addEventListener('scroll', styleNav)

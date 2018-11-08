@@ -17,6 +17,10 @@
         opacity: .7;
     }
 
+    @media screen and (max-width: 768px) {
+        padding: 70px 25px;
+    }
+
     .weather__info {
         position: absolute;
         left: 70px;
@@ -33,6 +37,17 @@
         .details {
             flex: 1 1 auto;
             margin-left: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            display: block;
+
+            .details {
+                margin-left: 0;
+            }
         }
         
     }

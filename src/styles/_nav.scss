@@ -40,3 +40,14 @@
         top: 10px;
     }
 }
+
+.nav.active {
+    background-color: white;
+    transition: background-color .3s ease;
+
+    .search-icon input {
+        border-color: black;
+        transition: border-color .3s ease;
+
+    }
+}
