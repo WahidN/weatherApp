@@ -24,10 +24,9 @@ let geoSet = false;
  *****************/
 const getWeather = (weather) => {
     const result = getValues(weather);
-    
     WeatherView.updateLocation(result.place, result.country);
     WeatherView.updateWeatherInfo(result.temp, result.tempMax, result.tempMin, result.windDeg, result.windSpeed);
-
+    WeatherView.updateGradient(result.temp);
     removeLoader();
 }
 
@@ -52,31 +51,39 @@ const getForecast = (forecast) => {
 }
 
 const getGeoLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-        async (position) => {
-            const res = await position;
-            const [lat, lon] = [res.coords.latitude, res.coords.longitude];
-            
-            // get weather 
-            state.geo = new GeoWeather(lat, lon);
-            const weather = await state.geo.getGeoWeather();
-            getWeather(weather);
+    try {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                showLoader();
+                const res = position;
+                const [lat, lon] = [res.coords.latitude, res.coords.longitude];
+                
+                // get weather 
+                state.geo = new GeoWeather(lat, lon);
+                const weather = await state.geo.getGeoWeather();
+                getWeather(weather);
+    
+                // get forecast
+                state.geoForecast = new GeoWeather(lat, lon);
+                const forecast = await state.geoForecast.getGeoForecast();
+                getForecast(forecast);
 
-            // get forecast
-            state.geoForecast = new GeoWeather(lat, lon);
-            const forecast = await state.geoForecast.getGeoForecast();
-            getForecast(forecast);
-        },
-        (err)  => {
-            console.log(err)
-            geoSet = false;
-            removeLoader();
-        }
-    )
+            },
+            (err)  => {
+                console.error('error: ', err)
+                geoSet = false;
+                removeLoader();
+            }
+        )
+    } catch (err) {
+        console.error(err);
+    }
+    
 }
 
 const searchControl = async () => {
     const query = SearchView.getInput();
+    SearchView.clearInput();
     showLoader();
     if(query) {
         ForecastView.clearForecast();
@@ -87,10 +94,8 @@ const searchControl = async () => {
         try {
             const weatherData = await state.weather.getWeather();
             const forecastData = await state.forecast.getForecast();
-            const result = getValues(weatherData);
             getForecast(forecastData);
-            WeatherView.updateLocation(result.place, result.country);
-            WeatherView.updateWeatherInfo(result.temp, result.tempMax, result.tempMin, result.windDeg, result.windSpeed);
+            getWeather(weatherData);
 
             removeLoader();
         } catch(err) {
@@ -107,7 +112,6 @@ const checkGeo = () => {
         geoSet = true;
         if(geoSet) {
             ForecastView.clearForecast();
-            showLoader();
             getGeoLocation();
         }
     } else {
@@ -131,6 +135,11 @@ const styleNav = () => {
  * Event Listeners
  *****************/
 window.addEventListener('load', checkGeo);
+document.querySelector('#search').addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+        searchControl();
+    }
+});
 document.querySelector('.js--search').addEventListener('click', searchControl)
 document.querySelector('.js--getGeoLocation').addEventListener('click', checkGeo)
 document.addEventListener('scroll', styleNav)

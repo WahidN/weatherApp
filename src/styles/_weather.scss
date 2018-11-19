@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     padding: 25px;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     position: relative;
     color: #212121;
 
     .place__title {
         display: block;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
     }
 
     .country__title {
@@ -27,6 +28,7 @@
         bottom: 100px;
         display: flex;
         align-items: center;
+        flex-direction: column;
         justify-content: center;
 
         .degrees {
@@ -51,4 +53,16 @@
         }
         
     }
+}
+
+.weather.warm {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.weather.cold {
+    background-image: linear-gradient(to right, #a0b6d8, #9bc3e3, #97d0ea, #96ddee, #9ae9ee);
+}
+
+.weather.average {
+    background-image: linear-gradient(to right, #fbe0bb, #e6e5b8, #cceac1, #b0edd2, #9aeee9);
 }
